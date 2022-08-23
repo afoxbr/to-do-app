@@ -1,8 +1,13 @@
 function createProject() {
-    project = document.createElement("div");
+    const project = document.createElement("div");
     project.setAttribute("class", "project");
     document.getElementById("content").appendChild(project);
-    toDoButton = document.createElement("button");
+    const projectTitle = document.createElement("h2");
+    projectTitle.innerHTML = "Daily Tasks";
+    project.appendChild(projectTitle);
+    const toDoCards = document.createElement("div");
+    project.appendChild(toDoCards);
+    const toDoButton = document.createElement("button");
     toDoButton.innerHTML = "create task";
     project.appendChild(toDoButton);
 };
