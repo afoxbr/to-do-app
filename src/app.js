@@ -1,0 +1,2 @@
+import { createProject } from './dom';
+
