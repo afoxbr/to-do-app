@@ -8,6 +8,7 @@ function createProject() {
     const toDoCards = document.createElement("div");
     project.appendChild(toDoCards);
     const toDoButton = document.createElement("button");
+    toDoButton.setAttribute("class", "newToDo");
     toDoButton.innerHTML = "create task";
     project.appendChild(toDoButton);
 };
