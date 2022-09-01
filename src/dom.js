@@ -1,6 +1,7 @@
 import { projectControl } from './app';
 
 function createProject() {
+    document.getElementById("content").innerHTML = '';
     for (i = 0; i < projectArray.length; i++) {
         let project = document.createElement("div");
         project.setAttribute("class", "project");

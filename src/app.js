@@ -40,8 +40,12 @@ const projectControl = () => {
             let submittedProject = new project()
             submittedProject.title = document.getElementById("projectNameInput").value;
             submittedProject.toDoArray = [];
+            
             projectArray.push(submittedProject);
+            
             formDiv.innerHTML = '';
+
+            createProject();
         });
     });
 };
@@ -110,7 +114,8 @@ function newToDoButton() {
             submittedToDoCard.priority = document.getElementById("toDoPriority").ariaChecked;
 
             toDoArray.push(submittedToDoCard);
-        })
+            createProject();
+        });
 })};
 
 export { 
