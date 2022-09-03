@@ -15,7 +15,7 @@ function createProject() {
         project.appendChild(toDoCards);
 
         if (projectArray[i].toDoArray.length > 0) {
-            for (i = 0; i < projectArray[i].toDoArray.length; i ++){
+            for (k = 0; k < projectArray[i].toDoArray.length; k ++){
                 //write dom manipulation stuff for to do cards here
             };
         };
