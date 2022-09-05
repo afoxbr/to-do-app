@@ -1,7 +1,8 @@
 import { createProject } from './dom';
 
+const projectArray = [];
+
 const projectControl = () => {
-    let projectArray = [];
 
     class project {
         constructor(title, toDoArray) {
@@ -10,14 +11,14 @@ const projectControl = () => {
         };
     };
 
-    const newProjectButton = document.createElement("button");
+    let newProjectButton = document.createElement("button");
     newProjectButton.innerHTML = "new project";
     newProjectButton.setAttribute("id", "newProjectButton");
-    body.appendChild(newProjectButton);
+    document.getElementById("projectButton").appendChild(newProjectButton);
 
-    const formDiv = document.createElement("div");
+    let formDiv = document.createElement("div");
     formDiv.setAttribute("id", "formDiv");
-    document.getElementById("content").appendChild(formDiv);
+    document.getElementById("projectButton").appendChild(formDiv);
 
     newProjectButton.addEventListener("click", () => {
         
@@ -42,10 +43,10 @@ const projectControl = () => {
             submittedProject.toDoArray = [];
             
             projectArray.push(submittedProject);
-            
+
             formDiv.innerHTML = '';
 
-            createProject();
+            createProject(projectArray);
         });
     });
 };
@@ -121,4 +122,5 @@ function newToDoButton() {
 export { 
     projectControl,
     newToDoButton,
+    projectArray,
 };
