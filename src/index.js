@@ -1,7 +1,5 @@
 import { createProject } from './dom';
-import { projectControl } from './app';
-import { newToDoButton } from './app';
+import { appObject } from './app';
 
-projectControl();
+appObject.projectControl();
 createProject();
-newToDoButton();

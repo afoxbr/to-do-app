@@ -1,7 +1,10 @@
-import { projectArray } from './app';
+import { appObject } from './app';
 
-function createProject(projectArray) {
+function createProject() {
     document.getElementById("content").innerHTML = '';
+
+    let projectArray = appObject.projectArray
+
     if (projectArray.length > 0) {
         for (let i = 0; i < projectArray.length; i++) {
             let project = document.createElement("div");
@@ -13,11 +16,21 @@ function createProject(projectArray) {
             project.appendChild(projectTitle);
             
             let toDoCards = document.createElement("div");
+            toDoCards.setAttribute("class", "cardFlexBox");
             project.appendChild(toDoCards);
 
             if (projectArray[i].toDoArray.length > 0) {
-                for (k = 0; k < projectArray[i].toDoArray.length; k++){
-                    //write dom manipulation stuff for to do cards here
+
+                let toDoArray = projectArray[i].toDoArray;
+
+                for (let k = 0; k < toDoArray.length; k++){
+                    let displayCard = document.createElement("div");
+                    displayCard.setAttribute("class", "displayCard");
+                    toDoCards.appendChild(displayCard);
+
+                    let displayCardTitle = document.createElement("h3");
+                    displayCardTitle.innerHTML = toDoArray[k].title;
+                    displayCard.appendChild(displayCardTitle);
                 };
             };
 
@@ -26,9 +39,9 @@ function createProject(projectArray) {
             project.appendChild(formSection);
             
             let toDoButton = document.createElement("button");
-            toDoButton.setAttribute("class", "newToDo");
             toDoButton.innerHTML = "create task";
             project.appendChild(toDoButton);
+            appObject.newToDoButton(toDoButton, i);
         };
     };     
 };
