@@ -28,9 +28,43 @@ function createProject() {
                     displayCard.setAttribute("class", "displayCard");
                     toDoCards.appendChild(displayCard);
 
+                    if (toDoArray[k].toDoPriority == true) {
+                        displayCard.setAttribute("class", "highPriority");
+                    };
+
                     let displayCardTitle = document.createElement("h3");
                     displayCardTitle.innerHTML = toDoArray[k].title;
                     displayCard.appendChild(displayCardTitle);
+
+                    let displayCardDate = document.createElement("div");
+                    displayCardDate.innerHTML = toDoArray[k].dueDate;
+                    displayCard.appendChild(displayCardDate);
+
+                    let displayCardExpand = document.createElement("div");
+                    displayCard.appendChild(displayCardExpand);
+
+                    let fullDisplay = false;
+
+                    let expandButton = document.createElement("button");
+                    expandButton.innerHTML = "Expand";
+                    displayCard.appendChild(expandButton);
+
+                    expandButton.addEventListener("click", () => {
+                        if (fullDisplay == false) {
+                            let displayCardDesc = document.createElement("p");
+                            displayCardDesc.innerHTML = toDoArray[k].description;
+                            displayCardExpand.appendChild(displayCardDesc);
+                            
+                            expandButton.innerHTML = "Collapse";
+                            fullDisplay = true;
+                        } else if (fullDisplay == true) {
+                            displayCardExpand.innerHTML = "";
+
+                            expandButton.innerHTML = "Expand";
+
+                            fullDisplay = false;
+                        };
+                    });
                 };
             };
 

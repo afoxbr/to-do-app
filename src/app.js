@@ -113,7 +113,7 @@ const appObject = {
                 submittedToDoCard.title = document.getElementById("toDoTitle").value;
                 submittedToDoCard.description = document.getElementById("toDoDesc").value;
                 submittedToDoCard.dueDate = document.getElementById("toDoDate").value;
-                submittedToDoCard.priority = document.getElementById("toDoPriority").ariaChecked;
+                submittedToDoCard.priority = document.getElementById("toDoPriority").checked;
 
                 appObject.projectArray[i].toDoArray.push(submittedToDoCard);
                 createProject();
