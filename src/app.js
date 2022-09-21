@@ -1,7 +1,9 @@
 import { createProject } from './dom';
 
 const appObject = {
+
     projectArray: [],
+
     projectControl: () => {
 
         let newProjectButton = document.createElement("button");
@@ -46,6 +48,14 @@ const appObject = {
                 appObject.projectArray.push(submittedProject);
 
                 formDiv.innerHTML = '';
+
+                localStorage.setItem("projectArrayStorage", JSON.stringify(appObject.projectArray));
+                for (let q = 0; q < appObject.projectArray.length; q++){
+                    localStorage.setItem(`taskArrayStorage[${q}]`, JSON.stringify(appObject.projectArray[q].toDoArray));
+                    for (let y = 0; y < appObject.projectArray[q].toDoArray.length; y++){
+                        localStorage.setItem(`taskDetailsStorage[${q+y}]`, JSON.stringify(appObject.projectArray[q].toDoArray[y]));
+                    };
+                };
 
                 createProject();
             });
@@ -92,6 +102,7 @@ const appObject = {
             newTaskForm.appendChild(dueDateInput);
 
             let prioritySection = document.createElement("div");
+            prioritySection.setAttribute("class", "prioritySection");
             newTaskForm.appendChild(prioritySection);
 
             let priorityLabel = document.createElement("label");

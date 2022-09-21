@@ -28,8 +28,8 @@ function createProject() {
                     displayCard.setAttribute("class", "displayCard");
                     toDoCards.appendChild(displayCard);
 
-                    if (toDoArray[k].toDoPriority == true) {
-                        displayCard.setAttribute("class", "highPriority");
+                    if (toDoArray[k].priority == true) {
+                        displayCard.classList.add("highPriority");
                     };
 
                     let displayCardTitle = document.createElement("h3");
@@ -45,9 +45,13 @@ function createProject() {
 
                     let fullDisplay = false;
 
+                    let displayCardButtons = document.createElement("div");
+                    displayCardButtons.setAttribute("class", "displayCardButtons");
+                    displayCard.appendChild(displayCardButtons);
+
                     let expandButton = document.createElement("button");
                     expandButton.innerHTML = "Expand";
-                    displayCard.appendChild(expandButton);
+                    displayCardButtons.appendChild(expandButton);
 
                     expandButton.addEventListener("click", () => {
                         if (fullDisplay == false) {
@@ -64,6 +68,15 @@ function createProject() {
 
                             fullDisplay = false;
                         };
+                    });
+
+                    let finishButton = document.createElement("button");
+                    finishButton.innerHTML = "Complete";
+                    displayCardButtons.appendChild(finishButton);
+
+                    finishButton.addEventListener("click", () => {
+                        toDoArray.splice(k, 1);
+                        createProject();
                     });
                 };
             };
